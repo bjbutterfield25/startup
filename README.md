@@ -1,4 +1,4 @@
-# Your startup name here
+# Pictures Around the World Website
 
 [My Notes](notes.md)
 
@@ -26,7 +26,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ### Elevator pitch
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Pictures Around the World is your go-to destination to view breathtaking photographs. Whether you are a photography enthusiast or a casual admirer, my website will bring stunning visuals right to your fingertips. You will also be able to engage with others by reacting to the photos and leaving comments. 
+
 
 ### Design
 
