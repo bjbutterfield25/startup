@@ -56,7 +56,7 @@ I am going to use the required technologies in the following ways.
 - **Service** - Backend service with endpoints for:
   - Login
   - Leaving comments
-- **DB/Login** - Stores users and comments in database. Login and register users. Credentials will be secure stored in database. Can only leave comments if authenticated. 
+- **DB/Login** - Stores users and comments in database. Login and register users. Credentials will be securely stored in database. Can only leave comments if authenticated. 
 - **WebSocket** - When a user leaves a comment, all other users will be able to see it.
 
 ## 🚀 AWS deliverable
