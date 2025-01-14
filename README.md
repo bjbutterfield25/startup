@@ -25,9 +25,16 @@ Pictures Around the World is your go-to destination to view breathtaking photogr
 
 ```mermaid
 sequenceDiagram
-    actor You
-    actor Website
-    You->>Website: Replace this with your design
+    actor Sam
+    actor Bob
+    actor Joe
+    participant Server
+    Sam->>Server: Adds comment
+    Server->>Bob: Displays comment
+    Server->>Joe: Displays comment
+    Bob->>Server: Adds comment
+    Server->>Sam: Displays comment
+    Server->>Joe: Displays comment
 ```
 
 ### Key features
