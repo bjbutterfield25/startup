@@ -18,15 +18,15 @@ A brief description of the application here. Lorem ipsum dolor sit amet, consect
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] Proper use of Markdown
+- [x] Proper use of Markdown
 - [ ] A concise and compelling elevator pitch
-- [ ] Description of key features
+- [x] Description of key features
 - [ ] Description of how you will use each technology
 - [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
 
-Pictures Around the World is your go-to destination to view breathtaking photographs. Whether you are a photography enthusiast or a casual admirer, my website will bring stunning visuals right to your fingertips. You will also be able to engage with others by reacting to the photos and leaving comments. 
+Pictures Around the World is your go-to destination to view breathtaking photographs. Whether you are a photography enthusiast or a casual admirer, my website will bring stunning visuals right to your fingertips. You will also be able to engage with others by reacting to the photos and leaving thoughtful comments. Pictures Around the World is not just another website; it is a hub where every photo is a shared experience.
 
 
 ### Design
@@ -44,9 +44,12 @@ sequenceDiagram
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- Secure login over HTTPS
+- Displays various images
+- Ability to leave comments on images
+- Comments are posted for others to see in realtime
+- Ability for users to edit and delete their own comments
+- Ability for admin to delete comments
 
 ### Technologies
 
