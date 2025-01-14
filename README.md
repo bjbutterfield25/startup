@@ -19,9 +19,9 @@ A brief description of the application here. Lorem ipsum dolor sit amet, consect
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [x] Proper use of Markdown
-- [ ] A concise and compelling elevator pitch
+- [x] A concise and compelling elevator pitch
 - [x] Description of key features
-- [ ] Description of how you will use each technology
+- [x] Description of how you will use each technology
 - [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
@@ -55,12 +55,14 @@ sequenceDiagram
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **HTML** - Use correct HTML structure. 3 HTML pages: one for login, one for displaying images, and one for leaving comments. Hyperlinks between photos and comment page
+- **CSS** - Application looks good on different screen sizes. Properly formats images with text and color schemes. 
+- **React** - Provides login. Retrieves and displays comments that users submit. 
+- **Service** - Backend service with endpoints for:
+  - Login
+  - Leaving comments
+- **DB/Login** - Stores users and comments in database. Login and register users. Credentials will be secure stored in database. Can only leave comments if authenticated. 
+- **WebSocket** - When a user leaves a comment, all other users will be able to see it.
 
 ## 🚀 AWS deliverable
 
