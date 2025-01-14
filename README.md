@@ -30,11 +30,11 @@ sequenceDiagram
     actor Joe
     participant Server
     Sam->>Server: Adds comment
-    Server->>Bob: Displays comment
-    Server->>Joe: Displays comment
+    Server-->>Bob: Displays comment
+    Server-->>Joe: Displays comment
     Bob->>Server: Adds comment
-    Server->>Sam: Displays comment
-    Server->>Joe: Displays comment
+    Server-->>Sam: Displays comment
+    Server-->>Joe: Displays comment
 ```
 
 ### Key features
