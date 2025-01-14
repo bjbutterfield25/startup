@@ -2,7 +2,7 @@
 
 [My Notes](notes.md)
 
-This application will display various photographs where users can view and then leave comments. Those comments will then be posted and can be viewed by other users. 
+This application will display various photographs that users can view and then leave comments. These comments will then be posted and can be viewed by other users. 
 
 ## 🚀 Specification Deliverable
 
