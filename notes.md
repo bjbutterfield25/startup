@@ -23,7 +23,7 @@ Each device has its own IP address (numbers) that is public. Our devices are con
 Communication layers
 
 | Layer | Example | Purpose |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | Application | HTTPS | Functionality like web browsing |
 | Transport | TCP/UDP | Packet delivery |
 | Internet | IP | Establishing connectioins, routing |
