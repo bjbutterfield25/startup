@@ -10,6 +10,10 @@
 
 ## AWS Notes
 
+Public IP Address: 54.166.56.221
+Command to ssh: 
+➜  ssh -i [key pair file] ubuntu@[ip address]
+
 ### Technology Stack
 Startup stack- React (frontend), Caddy 2(backend), node JS(hosting code), mongoDB (database). Frontend application runs on the browser. Backend applications are running on the server. 
 
