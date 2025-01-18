@@ -53,9 +53,7 @@ I am going to use the required technologies in the following ways.
 - **HTML** - Use correct HTML structure. 3 HTML pages: one for login, one for displaying images, and one for leaving comments. Hyperlinks between photos and comment page
 - **CSS** - Application looks good on different screen sizes. Properly formats images with text and color schemes. 
 - **React** - Provides login. Retrieves and displays comments that users submit. 
-- **Service** - Backend service with endpoints for:
-  - Login
-  - Leaving comments
+- **Service** - Backend service with endpoints for login and leaving comments. 3rd party call to get inspirational quotes.
 - **DB/Login** - Stores users and comments in database. Login and register users. Credentials will be securely stored in database. Can only leave comments if authenticated. 
 - **WebSocket** - When a user leaves a comment, all other users will be able to see it.
 
@@ -63,7 +61,7 @@ I am going to use the required technologies in the following ways.
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Server deployed and accessible with custom domain name** - [My server link](https://yourdomainnamehere.click).
+- [x] **Server deployed and accessible with custom domain name** - [My server link](https://startup.picsaw.click).
 
 ## 🚀 HTML deliverable
 
