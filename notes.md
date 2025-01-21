@@ -1,6 +1,6 @@
 # CS 260 Notes
 
-[My startup](https://simon.cs260.click)
+[My startup](https://startup.picsaw.click)
 
 ## Helpful links
 
@@ -36,4 +36,29 @@ It maps human readable names to their IP addresses. Localhost is the DNS for you
 
 ## HTML Notes
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+HTML is the structural language of the web
+- <!DOCTYPE html> tells the browser that it is a html file
+- Open tag <>, close tag </>
+- Attribute: ex. lang
+- Attribute value: = "en"
+- Element is everything within the tags
+
+DOM- Document Object Model (tree structure of HTML)
+
+Different elements:
+- <p>: paragraph 
+- <img>: image
+- <head>: Header information
+- <title>: title of the page
+- <body>: The entire content body of the page
+- <header>: Header content
+- <main>: Main content of the page
+- <footer>: footer of the main content
+- <section>: a section of the main content
+- <div>: a block division of content
+- <span>: an inline span of content
+- <h[1-9]>: Text heading from 1-9
+- <table>: table
+- <ol, ul>: ordered or unordered list
+- <a>: anchor the text to a hyperlink
+
