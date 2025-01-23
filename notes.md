@@ -62,3 +62,35 @@ Different elements:
 - <ol, ul>: ordered or unordered list
 - <a>: anchor the text to a hyperlink
 
+## CSS Notes
+
+CSS is used to style websites. Order is important! It will apply whatever was declared last.
+
+You can include CSS inline, using the style element or by referencing a stylesheet
+Inline ex: style = "color:red; font-size: 50vh"
+Ref ex: link rel="stylesheet" href="styles.css"
+
+Use MDN to learn CSS.
+Use dev tools in the browser to debug CSS.
+
+### Types of Selectors
+- element
+- ID: has to start with #
+- class: has to start with .
+- element class: element.class
+- list: body, section
+- Descendant: body section
+- child: section > p
+- Pseudo: p:hover
+
+### Declarations
+- background-color
+- border
+- color
+- display
+- font
+- margin
+- padding
+
+### Animations
+Define the animation then call is using @keyframes 
