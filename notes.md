@@ -36,6 +36,9 @@ It maps human readable names to their IP addresses. Localhost is the DNS for you
 
 ## HTML Notes
 
+How to deploy files:
+./deployFiles.sh -k <yourpemkey> -h <yourdomain> -s startup
+
 HTML is the structural language of the web
 - <!DOCTYPE html> tells the browser that it is a html file
 - Open tag <>, close tag </>
