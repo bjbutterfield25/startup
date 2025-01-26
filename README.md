@@ -68,13 +68,13 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [x] **HTML pages** - Three different pages. One for each view. `index.html` (login), `pictures.html` (view pictures), and `comments.html` (leave comments) 
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
+- [x] **Proper HTML element usage** - I used body, header, footer, main, nav, a, img, figure and many other elements.
 - [x] **Links** - Links between pages.
-- [ ] **Text** - I did not complete this part of the deliverable.
+- [x] **Text** - index.html page has text.
 - [x] **3rd party API placeholder** - `index.html` has a place to display inspirational quotes.
-- [ ] **Images** - I did not complete this part of the deliverable.
+- [x] **Images** - pictures.html displays various images.
 - [x] **Login placeholder** - `index.html` has placeholder for login.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
+- [x] **DB data placeholder** - Comments are stored and displayed on the comments.html page.
 - [x] **WebSocket placeholder** - `pictures.html` has an area where notifications will be pushed when a user leaves a comment.
 
 ## 🚀 CSS deliverable
