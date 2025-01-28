@@ -49,21 +49,21 @@ HTML is the structural language of the web
 DOM- Document Object Model (tree structure of HTML)
 
 Different elements:
-- <p>: paragraph 
-- <img>: image
-- <head>: Header information
-- <title>: title of the page
-- <body>: The entire content body of the page
-- <header>: Header content
-- <main>: Main content of the page
-- <footer>: footer of the main content
-- <section>: a section of the main content
-- <div>: a block division of content
-- <span>: an inline span of content
-- <h[1-9]>: Text heading from 1-9
-- <table>: table
-- <ol, ul>: ordered or unordered list
-- <a>: anchor the text to a hyperlink
+- p: paragraph 
+- img: image
+- head: Header information
+- title: title of the page
+- body: The entire content body of the page
+- header: Header content
+- main: Main content of the page
+- footer: footer of the main content
+- section: a section of the main content
+- div: a block division of content
+- span: an inline span of content
+- h[1-9]: Text heading from 1-9
+- table: table
+- ol, ul: ordered or unordered list
+- a: anchor the text to a hyperlink
 
 ## CSS Notes
 
@@ -96,4 +96,15 @@ Use dev tools in the browser to debug CSS.
 - padding
 
 ### Animations
-Define the animation then call is using @keyframes 
+Define the animation then call it using @keyframes 
+
+### Responsive design
+- meta name = "viewport" content="width=device-width, initial-scale=1"
+```
+aside {
+    float: right; 
+    padding: 3em;
+    margin: 0.5em;
+    borders: black solid thin
+}
+```
