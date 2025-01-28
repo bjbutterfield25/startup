@@ -108,3 +108,14 @@ aside {
     borders: black solid thin
 }
 ```
+``` 
+.container{
+    display: flex;
+}
+
+.item{
+    flex: 0 0 50px;
+}
+```
+In flex, first value is grow, second shrink, third basis. Grow and shrink are in fractional units
+
