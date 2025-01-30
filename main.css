@@ -37,3 +37,10 @@ menu .nav-item{
 .nav-link.active{
     border-bottom: solid black thick;
 }
+
+.input-group {
+    width: 50vw;
+    align-items: center;
+    margin: auto;
+    min-width: 300px;
+}
