@@ -3,10 +3,20 @@ body {
     flex-direction: column;
     min-width: 400px;
     background-color: lightgray;
+    min-height: 100vh;
 }
 
 header {
-    flex: 0 100px;
+    height: 100px;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    height: 25px;
+    background-color: #e3f2fd;
 }
 
 menu {
@@ -22,4 +32,8 @@ menu {
 
 menu .nav-item{
     padding: .5em;
+}
+
+.nav-link.active{
+    border-bottom: solid black thick;
 }
