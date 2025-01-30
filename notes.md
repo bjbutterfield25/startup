@@ -10,8 +10,8 @@
 
 ## AWS Notes
 
-Public IP Address: 54.166.56.221
-Command to ssh: 
+- Public IP Address: 54.166.56.221
+- Command to ssh: 
 ➜  ssh -i [key pair file] ubuntu@[ip address]
 
 ### Technology Stack
@@ -118,4 +118,32 @@ aside {
 }
 ```
 In flex, first value is grow, second shrink, third basis. Grow and shrink are in fractional units
+
+## JavaScript
+Our web browser has a built in JavaScript interpreter.
+
+- `let variable = x` set variable
+- `const variable = x` set variable that cannot change
+
+### JavaScript built in functions
+- `alert(msg)` will popup message
+- `console.log(msg)` will print something out in the console
+
+```
+function join(a, b) {
+    return a + ' ' + b
+}
+console.log(join('Hello', 'world'))
+```
+
+Array
+```
+const words = ['hello', world'];
+words.forEach((word) => console.log(word));
+```
+
+Lambda functions
+```
+const f = (x) => {x++; return x};
+```
 
