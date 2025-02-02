@@ -9,6 +9,7 @@
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
             crossorigin="anonymous">
         <link rel="stylesheet" href="main.css"/>
+        <link rel="stylesheet" href="comments.css"/>
     </head>
     <body>
         <header class="container-fluid">
@@ -27,17 +28,18 @@
             </div>
             <h2>Add comments for this picture below</h2>
             <!--Picture will be different depending on which picture they select, this is just a place holder-->
-            <img width=400px src="Photos\Sunsets\sunset_ecuador.jpg">
+            <img src="Photos\Sunsets\sunset_ecuador.jpg">
             <!--Placeholder for database storing/displaying comments-->
-            <p>Impressive -Jim</p>
-            <p>This is a beautiful picture -Anne</p>
-            <p>So cool -Jack</p>
+            <div class = "commentsDiv">
+                <p class = "comments">Impressive -Jim</p>
+                <p class = "comments">This is a beautiful picture -Anne</p>
+                <p class = "comments">So cool -Jack</p>
+            </div>
             <form method="get" action="comments.html">
                 <label for="textarea">Comments: </label>
                 <textarea id="textarea" name="comment"></textarea>
-                <button type="submit">Post Comment</button>
+                <button type="submit" class="btn btn-primary">Post Comment</button>
             </form>
-            
         </main>
         <footer>
             <span>Bradley Butterfield</span>
