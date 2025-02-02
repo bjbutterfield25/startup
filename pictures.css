@@ -10,3 +10,19 @@ img {
 h2 {
     text-align: center;
 }
+
+h5 {
+    margin: 0;
+}
+
+.carousel-indicators{
+    margin-bottom: 0;
+}
+
+.carousel-caption{
+    padding: 0;
+}
+
+.carousel-caption a {
+    color: white;
+}
