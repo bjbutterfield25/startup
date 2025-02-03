@@ -81,12 +81,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Header, footer, and main content body** - I did not complete this part of the deliverable.
-- [ ] **Navigation elements** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing** - I did not complete this part of the deliverable.
-- [ ] **Application elements** - I did not complete this part of the deliverable.
-- [ ] **Application text content** - I did not complete this part of the deliverable.
-- [ ] **Application images** - I did not complete this part of the deliverable.
+- [x] **Header, footer, and main content body** - I used a common CSS file to style these `main.css`. I also used a specific CSS file for each view: `index.css`, `pictures.css` and `comments.css`
+- [x] **Navigation elements** - I used Bootstrap to design my navigation bar.
+- [x] **Responsive to window resizing** - I used a lot of `display:flex` and `width: vw` or `height: vh` to have my page be responsive to window resizing.
+- [x] **Application elements** - I used different `display` and `position` properties to get all of the different elements formatted properly.
+- [x] **Application text content** - I changed some of the fonts to Helvetica on the `index.html` and `comments.html` pages, changed the color of the username on the `pictures.html` and `comments.html` pages, and italicized the inspirational quote on the `index.html` page.
+- [x] **Application images** - I used the Bootstrap Carousel to format my images on the `pictures.html` page.
 
 ## 🚀 React part 1: Routing deliverable
 
