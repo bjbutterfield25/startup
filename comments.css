@@ -14,11 +14,13 @@ h2 {
     color: #333;
     padding: 15px;
     border-radius: 25px;
-    max-width: 300px;
+    max-width: 40vw;
     margin: 10px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     line-height: 1.5;
     position: relative;
+    display: inline-block;
+    align-items: center;
   }
 
 .comments::after {
@@ -33,6 +35,11 @@ h2 {
   }
 
 .commentsDiv {
-    position: fixed;
-    right: 20px;
+    position: relative;
+    padding: 0.5em;
+}
+
+.mb-3 {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
