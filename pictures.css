@@ -26,3 +26,15 @@ h5 {
 .carousel-caption a {
     color: white;
 }
+
+.user {
+    padding-left: 0.5em;
+}
+
+.usersName {
+    color:darkgoldenrod;
+}
+
+.updates {
+    padding-left: 0.5em;
+}

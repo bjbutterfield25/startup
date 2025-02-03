@@ -2,7 +2,7 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 40vw;
+    height: 50vh;
 }
 
 h2 {
@@ -20,6 +20,7 @@ h2 {
     line-height: 1.5;
     position: relative;
     display: inline-block;
+    font-family: Helvetica, Arial, auto;
   }
 
 .comments::after {
@@ -41,4 +42,12 @@ h2 {
 .mb-3 {
     padding-left: 0.5em;
     padding-right: 0.5em;
+}
+
+.user {
+    padding-left: 0.5em;
+}
+
+.usersName {
+    color:darkgoldenrod;
 }

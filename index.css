@@ -4,3 +4,7 @@ main {
     align-items: center;
     justify-content: center;
   }
+
+.intro {
+    font-family: Helvetica, Arial, auto;
+}
