@@ -7,16 +7,21 @@ body {
 }
 
 header {
-    height: 0 80px;
+    height: 80px;
 }
 
 main {
     flex: 1;
+    padding-bottom: 25px;
 }
 
 footer {
     height: 25px;
     background-color: #e3f2fd;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 menu {
@@ -43,6 +48,15 @@ menu .nav-item{
     align-items: center;
     margin: auto;
     min-width: 300px;
+}
+
+footer a{
+    float: right;
+    padding-right: 1em;
+}
+
+footer span{
+    padding-left: .5em;
 }
 
 @media (max-height: 600px) {
