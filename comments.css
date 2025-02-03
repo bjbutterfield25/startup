@@ -20,7 +20,6 @@ h2 {
     line-height: 1.5;
     position: relative;
     display: inline-block;
-    align-items: center;
   }
 
 .comments::after {
