@@ -8,7 +8,7 @@ export function Comments() {
             <span className = "usersName">TestUser</span>
         </div>
         <h2>Add comments for this picture below</h2>
-        <img src="Photos\Sunsets\sunset_ecuador.jpg"/>
+        <img className="img" src="Photos\Sunsets\sunset_ecuador.jpg"/>
         <div className = "commentsDiv">
             <p className = "comments">Impressive -Jim</p>
             <p className = "comments">This is a beautiful picture -Anne</p>
