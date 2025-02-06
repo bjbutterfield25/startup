@@ -33,6 +33,7 @@ menu {
 
 .navbar{
     background-color: #e3f2fd;
+    max-height: 80px;
 }  
 
 .navbar-brand{

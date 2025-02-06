@@ -14,7 +14,7 @@ export default function App() {
                 <nav className="navbar fixed-top">
                     <span className="navbar-brand mb-0 h1">Pictures Around the World</span>
                     <menu className="navbar-nav">
-                        <li className="nav-item"><NavLink className="nav-link active" aria-current="page" to="">Home</NavLink></li>
+                        <li className="nav-item"><NavLink className="nav-link" aria-current="page" to="">Home</NavLink></li>
                         <li className="nav-item"><NavLink className="nav-link" to="pictures">Pictures</NavLink></li>
                         <li className="nav-item"><NavLink className="nav-link" to="comments">Comments</NavLink></li>
                     </menu>
