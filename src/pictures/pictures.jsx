@@ -30,30 +30,35 @@ export function Pictures() {
             <img src="Photos/Sunsets/sunset_ecuador.jpg" className="img1 d-block w-100" alt="Sunset in Ecuador"/>
             <div className="carousel-caption d-none d-md-block">
               <h5>Sunset in Ecuador</h5>
+              <a href="comments">Leave a comment</a>
             </div>
           </div>
           <div className="carousel-item">
             <img src="Photos/Sunsets/sunset_norway.jpg" className="img1 d-block w-100" alt="Sunset in Norway"/>
             <div className="carousel-caption d-none d-md-block">
               <h5>Sunset in Norway</h5>
+              <a href="comments">Leave a comment</a>
             </div>
           </div>
           <div className="carousel-item">
             <img src="Photos/Sunsets/sunset_norway2.jpg" className="img1 d-block w-100" alt="Sunset in Norway 2"/>
             <div className="carousel-caption d-none d-md-block">
               <h5>Sunset in Norway</h5>
+              <a href="comments">Leave a comment</a>
             </div>
           </div>
           <div className="carousel-item">
             <img src="Photos/Sunsets/sunset_utah.jpg" className="img1 d-block w-100" alt="Sunset in Utah"/>
             <div className="carousel-caption d-none d-md-block">
               <h5>Sunset in Utah</h5>
+              <a href="comments">Leave a comment</a>
             </div>
           </div>
           <div className="carousel-item">
             <img src="Photos/Sunsets/sunset2.jpg" className="img1 d-block w-100" alt="Sunset in Texas"/>
             <div className="carousel-caption d-none d-md-block">
               <h5>Sunset in Texas</h5>
+              <a href="comments">Leave a comment</a>
             </div>
           </div>
         </div>
@@ -81,30 +86,35 @@ export function Pictures() {
             <img src="Photos/Animals/Bearded_dragon.jpg" className="img1 d-block w-100" alt="Bearded Dragon"/>
             <div className="carousel-caption d-none d-md-block">
               <h5>Bearded Dragon</h5>
+              <a href="comments">Leave a comment</a>
             </div>
           </div>
           <div className="carousel-item">
             <img src="Photos/Animals/Cougar.jpg" className="img1 d-block w-100" alt="Cougar"/>
             <div className="carousel-caption d-none d-md-block">
               <h5>Cougar</h5>
+              <a href="comments">Leave a comment</a>
             </div>
           </div>
           <div className="carousel-item">
             <img src="Photos/Animals/Dolphin.jpg" className="img1 d-block w-100" alt="Dolphin"/>
             <div className="carousel-caption d-none d-md-block">
               <h5>Dolphin</h5>
+              <a href="comments">Leave a comment</a>
             </div>
           </div>
           <div className="carousel-item">
             <img src="Photos/Animals/Giraffe.jpg" className="img1 d-block w-100" alt="Giraffe"/>
             <div className="carousel-caption d-none d-md-block">
               <h5>Giraffe</h5>
+              <a href="comments">Leave a comment</a>
             </div>
           </div>
           <div className="carousel-item">
             <img src="Photos/Animals/Gorilla.jpg" className="img1 d-block w-100" alt="Gorilla"/>
             <div className="carousel-caption d-none d-md-block">
               <h5>Gorilla</h5>
+              <a href="comments">Leave a comment</a>
             </div>
           </div>
         </div>
