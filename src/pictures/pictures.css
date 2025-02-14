@@ -39,11 +39,11 @@ h5 {
     padding-left: 0.5em;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     .img1{
-        width: 100vw;
+        width: 90vw;
     }
     .carousel{
-        width: 100vw;
+        width: 90vw;
     }
 }
