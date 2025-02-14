@@ -46,7 +46,7 @@ export function Pictures() {
         {sunsetImages.map((sunsetImages, index) => (
             <div key={sunsetImages.id} className={`carousel-item ${index === 0 ? "active" : ""}`}>
               <img src={sunsetImages.url} className="img1 d-block w-100" alt={sunsetImages.title} />
-              <div className="carousel-caption d-none d-md-block">
+              <div className="carousel-caption d-md-block">
                 <h5>{sunsetImages.title}</h5>
                 <Link to={`/comments/${sunsetImages.id}`}>Leave a comment</Link>
               </div>
@@ -76,7 +76,7 @@ export function Pictures() {
           {animalImages.map((animalImages, index) => (
             <div key={animalImages.id} className={`carousel-item ${index === 0 ? "active" : ""}`}>
               <img src={animalImages.url} className="img1 d-block w-100" alt={animalImages.title} />
-              <div className="carousel-caption d-none d-md-block">
+              <div className="carousel-caption d-md-block">
                 <h5>{animalImages.title}</h5>
                 <Link to={`/comments/${animalImages.id}`}>Leave a comment</Link>
               </div>

@@ -25,7 +25,8 @@ export default function App() {
             <Routes>
                 <Route path='/' element={<Login />} exact />
                 <Route path='/pictures' element={<Pictures />} />
-                <Route path='/comments' element={<Comments />} />
+                <Route path='/comments/:id' element={<Comments />} />
+                <Route path='/comments/' element={<Comments />} />
                 <Route path='*' element={<NotFound />} />
             </Routes>
         

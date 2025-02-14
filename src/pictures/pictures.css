@@ -38,3 +38,12 @@ h5 {
 .updates {
     padding-left: 0.5em;
 }
+
+@media (max-width: 500px) {
+    .img1{
+        width: 100vw;
+    }
+    .carousel{
+        width: 100vw;
+    }
+}
