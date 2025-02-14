@@ -1,7 +1,24 @@
 import React from 'react';
 import './pictures.css'; 
+import { Link } from 'react-router-dom';
 
 export function Pictures() {
+  const sunsetImages = [
+    { id: 1, url: "Photos/Sunsets/sunset_ecuador.jpg", title: "Sunset in Ecuador"},
+    { id: 2, url: "Photos/Sunsets/sunset_norway.jpg", title: "Sunset in Norway"},
+    { id: 3, url: "Photos/Sunsets/sunset_norway2.jpg", title: "Sunset in Norway 2"},
+    { id: 4, url: "Photos/Sunsets/sunset_utah.jpg", title: "Sunset in Utah"},
+    { id: 5, url: "Photos/Sunsets/sunset2.jpg", title: "Sunset in Texas"},
+  ];
+
+  const animalImages = [
+    { id: 6, url: "Photos/Animals/Bearded_dragon.jpg", title: "Breaded Dragon"},
+    { id: 7, url: "Photos/Animals/Cougar.jpg", title: "Cougar"},
+    { id: 8, url: "Photos/Animals/Dolphin.jpg", title: "Dolphin"},
+    { id: 9, url: "Photos/Animals/Giraffe.jpg", title: "Giraffe"},
+    { id: 10, url: "Photos/Animals/Gorilla.jpg", title: "Gorilla"},
+  ];
+
   return (
     <main>
       <div className="user">
@@ -26,41 +43,15 @@ export function Pictures() {
           <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
         </div>
         <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img src="Photos/Sunsets/sunset_ecuador.jpg" className="img1 d-block w-100" alt="Sunset in Ecuador"/>
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Sunset in Ecuador</h5>
-              <a href="comments">Leave a comment</a>
+        {sunsetImages.map((sunsetImages, index) => (
+            <div key={sunsetImages.id} className={`carousel-item ${index === 0 ? "active" : ""}`}>
+              <img src={sunsetImages.url} className="img1 d-block w-100" alt={sunsetImages.title} />
+              <div className="carousel-caption d-none d-md-block">
+                <h5>{sunsetImages.title}</h5>
+                <Link to={`/comments/${sunsetImages.id}`}>Leave a comment</Link>
+              </div>
             </div>
-          </div>
-          <div className="carousel-item">
-            <img src="Photos/Sunsets/sunset_norway.jpg" className="img1 d-block w-100" alt="Sunset in Norway"/>
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Sunset in Norway</h5>
-              <a href="comments">Leave a comment</a>
-            </div>
-          </div>
-          <div className="carousel-item">
-            <img src="Photos/Sunsets/sunset_norway2.jpg" className="img1 d-block w-100" alt="Sunset in Norway 2"/>
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Sunset in Norway</h5>
-              <a href="comments">Leave a comment</a>
-            </div>
-          </div>
-          <div className="carousel-item">
-            <img src="Photos/Sunsets/sunset_utah.jpg" className="img1 d-block w-100" alt="Sunset in Utah"/>
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Sunset in Utah</h5>
-              <a href="comments">Leave a comment</a>
-            </div>
-          </div>
-          <div className="carousel-item">
-            <img src="Photos/Sunsets/sunset2.jpg" className="img1 d-block w-100" alt="Sunset in Texas"/>
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Sunset in Texas</h5>
-              <a href="comments">Leave a comment</a>
-            </div>
-          </div>
+          ))}
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
           <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -82,41 +73,15 @@ export function Pictures() {
           <button type="button" data-bs-target="#carouselIndicators2" data-bs-slide-to="4" aria-label="Slide 5"></button>
         </div>
         <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img src="Photos/Animals/Bearded_dragon.jpg" className="img1 d-block w-100" alt="Bearded Dragon"/>
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Bearded Dragon</h5>
-              <a href="comments">Leave a comment</a>
+          {animalImages.map((animalImages, index) => (
+            <div key={animalImages.id} className={`carousel-item ${index === 0 ? "active" : ""}`}>
+              <img src={animalImages.url} className="img1 d-block w-100" alt={animalImages.title} />
+              <div className="carousel-caption d-none d-md-block">
+                <h5>{animalImages.title}</h5>
+                <Link to={`/comments/${animalImages.id}`}>Leave a comment</Link>
+              </div>
             </div>
-          </div>
-          <div className="carousel-item">
-            <img src="Photos/Animals/Cougar.jpg" className="img1 d-block w-100" alt="Cougar"/>
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Cougar</h5>
-              <a href="comments">Leave a comment</a>
-            </div>
-          </div>
-          <div className="carousel-item">
-            <img src="Photos/Animals/Dolphin.jpg" className="img1 d-block w-100" alt="Dolphin"/>
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Dolphin</h5>
-              <a href="comments">Leave a comment</a>
-            </div>
-          </div>
-          <div className="carousel-item">
-            <img src="Photos/Animals/Giraffe.jpg" className="img1 d-block w-100" alt="Giraffe"/>
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Giraffe</h5>
-              <a href="comments">Leave a comment</a>
-            </div>
-          </div>
-          <div className="carousel-item">
-            <img src="Photos/Animals/Gorilla.jpg" className="img1 d-block w-100" alt="Gorilla"/>
-            <div className="carousel-caption d-none d-md-block">
-              <h5>Gorilla</h5>
-              <a href="comments">Leave a comment</a>
-            </div>
-          </div>
+          ))}
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselIndicators2" data-bs-slide="prev">
           <span className="carousel-control-prev-icon" aria-hidden="true"></span>
