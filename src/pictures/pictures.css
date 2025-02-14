@@ -39,7 +39,7 @@ h5 {
     padding-left: 0.5em;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .img1{
         width: 90vw;
     }
