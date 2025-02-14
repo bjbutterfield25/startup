@@ -2,6 +2,14 @@ import React from 'react';
 import './login.css'
 
 export function Login() {
+    const [quote, setQuote] = React.useState('...loading')
+    const [quoteAuthor, setAuthor] = React.useState('unknown')
+
+    React.useEffect(() => {
+        setQuote('The only way to do great work is to love what you do')
+        setAuthor('Steve Jobs')
+    }, []);
+
   return (
     <main className="main container-fluid text-center">
         <h1>Welcome to Pictures Around the World</h1>
@@ -20,9 +28,9 @@ export function Login() {
         </form>
         <figure>
             <blockquote className="blockquote">
-                <p id="quote"><em>The only way to do great work is to love what you do</em></p>
+                <p id="quote"><em>{quote}</em></p>
             </blockquote>
-            <figcaption className="blockquote-footer">Steve Jobs</figcaption>
+            <figcaption className="blockquote-footer">{quoteAuthor}</figcaption>
         </figure>
     </main>
   );
