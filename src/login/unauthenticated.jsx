@@ -16,6 +16,7 @@ export function Unauthenticated(props) {
   
     return (
       <>
+        <p className="intro">Pictures Around the World allows you to view various photos and leave comments if you desire. Your comments will be public to all other users and you must login below in order to leave a comment.</p>
         <div>
           <div className='input-group mb-3'>
             <span className="input-group-text" id="basic-addon1">Username</span>
