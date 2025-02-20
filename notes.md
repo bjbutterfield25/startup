@@ -147,3 +147,20 @@ Lambda functions
 const f = (x) => {x++; return x};
 ```
 
+### JavaScript Promises
+Promise states
+- pending- Currently running asynchronously
+- fulfilled - completed successfully
+- rejected - Failed to complete 
+
+
+Example Promise function
+```
+function callback(resolve){
+    resolve('done')
+}
+
+const p = new Promise(callback)
+
+p.then((result) => console.log(result))
+```
