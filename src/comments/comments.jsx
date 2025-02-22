@@ -36,7 +36,7 @@ export function Comments(props) {
     const handleCommentChange = (event) => {
         setNewComment(event.target.value);
     };
-    
+
     const handleCommentSubmit = (event) => {
         event.preventDefault();
         if (newComment.trim() === "") return;
@@ -60,7 +60,9 @@ export function Comments(props) {
             <p style={{textAlign: 'center'}}>You will need to go to the Pictures page to select a picture</p>
         )}
         <div className = "commentsDiv">
-            {comments.map((comment, index) => (
+            {comments.length === 0 ? (
+                <p className="no-comments">Be the first to comment</p>
+                ) : comments.map((comment, index) => (
                 <p key={index} className="comments">
                     {comment.text} -{comment.userName}
                 </p>
