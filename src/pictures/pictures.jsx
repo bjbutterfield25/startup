@@ -1,8 +1,9 @@
 import React from 'react';
 import './pictures.css'; 
 import { Link } from 'react-router-dom';
+import { AuthState } from '../login/authState'; 
 
-export function Pictures() {
+export function Pictures({ userName, authState }) {
   const sunsetImages = [
     { id: 1, url: "Photos/Sunsets/sunset_ecuador.jpg", title: "Sunset in Ecuador"},
     { id: 2, url: "Photos/Sunsets/sunset_norway.jpg", title: "Sunset in Norway"},
@@ -21,17 +22,20 @@ export function Pictures() {
 
   return (
     <main>
-      <div className="user">
-        User: <span className="usersName">TestUser</span>
-      </div>
-      <div className="updates">
-        Recent Updates:
-        <ul id="notification">
-          <li><span className="usersName">Jim</span> posted a comment</li>
-          <li><span className="usersName">Anne</span> posted a comment</li>
-          <li><span className="usersName">Jack</span> posted a comment</li>
-        </ul>
-      </div>
+      {authState === AuthState.Authenticated && 
+      (<div>
+        <div className="user">
+          User: <span className="usersName">{userName}</span>
+        </div>
+        <div className="updates">
+          Recent Updates:
+          <ul id="notification">
+            <li><span className="usersName">Jim</span> posted a comment</li>
+            <li><span className="usersName">Anne</span> posted a comment</li>
+            <li><span className="usersName">Jack</span> posted a comment</li>
+          </ul>
+        </div>
+      </div>)}
       
       <h2>Sunsets</h2>
       <div id="carouselIndicators" className="carousel slide">
@@ -48,7 +52,7 @@ export function Pictures() {
               <img src={sunsetImages.url} className="img1 d-block w-100" alt={sunsetImages.title} />
               <div className="carousel-caption d-md-block">
                 <h5>{sunsetImages.title}</h5>
-                <Link to={`/comments/${sunsetImages.id}`}>Leave a comment</Link>
+                {authState === AuthState.Authenticated && (<Link to={`/comments/${sunsetImages.id}`}>Leave a comment</Link>)}
               </div>
             </div>
           ))}
@@ -78,7 +82,7 @@ export function Pictures() {
               <img src={animalImages.url} className="img1 d-block w-100" alt={animalImages.title} />
               <div className="carousel-caption d-md-block">
                 <h5>{animalImages.title}</h5>
-                <Link to={`/comments/${animalImages.id}`}>Leave a comment</Link>
+                {authState === AuthState.Authenticated && (<Link to={`/comments/${animalImages.id}`}>Leave a comment</Link>)}
               </div>
             </div>
           ))}

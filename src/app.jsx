@@ -42,9 +42,12 @@ export default function App() {
                     }
                     exact
                 />
-                <Route path='/pictures' element={<Pictures />} />
-                <Route path='/comments/:id' element={<Comments />} />
-                <Route path='/comments/' element={<Comments />} />
+                <Route path='/pictures' element={<Pictures 
+                    userName={userName}
+                    authState={authState}/>} 
+                />
+                <Route path='/comments/:id' element={<Comments userName={userName}/>} />
+                <Route path='/comments/' element={<Comments userName={userName}/>} />
                 <Route path='*' element={<NotFound />} />
             </Routes>
         
