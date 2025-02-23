@@ -47,6 +47,12 @@ export function Comments(props) {
         setNewComment("");
     };
 
+    const handleDeleteComment = (index) => {
+        const updatedComments = comments.filter((_, i) => i !== index);
+        setComments(updatedComments);
+        localStorage.setItem(`comments_${id}`, JSON.stringify(updatedComments));
+    };
+
 
   return (
     <main>
@@ -68,7 +74,7 @@ export function Comments(props) {
                         {comment.text} -{comment.userName}
                     </p>
                     {comment.userName === userName && ( 
-                        <button className="delete-btn" onClick={() => handleDeleteComment(index)}>
+                        <button className="btn btn-danger" onClick={() => handleDeleteComment(index)}>
                             Delete
                         </button>
                     )}
