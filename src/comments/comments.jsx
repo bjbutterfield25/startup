@@ -2,16 +2,10 @@ import React from 'react';
 import { useParams } from 'react-router-dom'
 import './comments.css';
 
-export function Comments(props) {
+export function Comments( {userName} ) {
     const { id } = useParams()
     const [comments, setComments] = React.useState([]);
     const [newComment, setNewComment] = React.useState("");
-    const [userName, setUsername] = React.useState("");
-
-    React.useEffect(() => {
-        const storedUsername = localStorage.getItem('userName');
-        setUsername(storedUsername);
-    }, []);
 
     const images = [
         { id: 1, url: "../Photos/Sunsets/sunset_ecuador.jpg", title: "Sunset in Ecuador"},
@@ -56,8 +50,8 @@ export function Comments(props) {
 
   return (
     <main>
-        <div className="user">User: 
-            <span className = "usersName">{userName}</span>
+        <div className="user">
+            User: <span className = "usersName">{userName}</span>
         </div>
         <h2>Add comments for this picture below</h2>
         {image ? (
