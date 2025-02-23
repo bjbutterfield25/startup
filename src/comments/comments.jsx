@@ -63,9 +63,16 @@ export function Comments(props) {
             {comments.length === 0 ? (
                 <p className="no-comments">Be the first to comment</p>
                 ) : comments.map((comment, index) => (
-                <p key={index} className="comments">
-                    {comment.text} -{comment.userName}
-                </p>
+                    <div key={index} className="commentItem">
+                    <p className="comments">
+                        {comment.text} -{comment.userName}
+                    </p>
+                    {comment.userName === userName && ( 
+                        <button className="delete-btn" onClick={() => handleDeleteComment(index)}>
+                            Delete
+                        </button>
+                    )}
+                </div>
             ))}
         </div>
         <div className="mb-3">
