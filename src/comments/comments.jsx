@@ -34,7 +34,8 @@ export function Comments( {userName} ) {
     const handleCommentSubmit = (event) => {
         event.preventDefault();
         if (newComment.trim() === "") return;
-        const newCommentObj = { userName, text: newComment };
+        const timestamp = Date.now();
+        const newCommentObj = { userName, text: newComment, timestamp };
         const updatedComments = [...comments, newCommentObj];
         setComments(updatedComments);
         localStorage.setItem(`comments_${id}`, JSON.stringify(updatedComments));
