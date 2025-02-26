@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { AuthState } from '../login/authState'; 
 
 export function Pictures({ userName, authState }) {
+  const [recentUpdates, setRecentUpdates] = React.useState([]);
+
   const sunsetImages = [
     { id: 1, url: "Photos/Sunsets/sunset_ecuador.jpg", title: "Sunset in Ecuador"},
     { id: 2, url: "Photos/Sunsets/sunset_norway.jpg", title: "Sunset in Norway"},
@@ -20,6 +22,31 @@ export function Pictures({ userName, authState }) {
     { id: 10, url: "Photos/Animals/Gorilla.jpg", title: "Gorilla"},
   ];
 
+  const allImages = [...sunsetImages, ...animalImages];
+
+  const fetchRecentComments = () => {
+    let allComments = [];
+
+    allImages.forEach(image => {
+      const storedComments = JSON.parse(localStorage.getItem(`comments_${image.id}`)) || [];
+      storedComments.forEach(comment => {
+        allComments.push({
+          username: comment.userName,
+          imageTitle: image.title,
+          timestamp: comment.timestamp
+        });
+      });
+    });
+
+    allComments.sort((a, b) => b.timestamp - a.timestamp);
+    setRecentUpdates(allComments.slice(0, 3));
+  };
+
+  React.useEffect(() => {
+    fetchRecentComments();
+    setInterval(() => fetchRecentComments, 5000)
+  }, []);
+
   return (
     <main>
       {authState === AuthState.Authenticated && 
@@ -30,10 +57,16 @@ export function Pictures({ userName, authState }) {
         <div className="updates">
           Recent Updates:
           <ul id="notification">
-            <li><span className="usersName">Jim</span> posted a comment</li>
-            <li><span className="usersName">Anne</span> posted a comment</li>
-            <li><span className="usersName">Jack</span> posted a comment</li>
-          </ul>
+              {recentUpdates.length > 0 ? (
+                recentUpdates.map((update, index) => (
+                  <li key={index}>
+                    <span className="usersName">{update.username}</span> posted a comment on <strong>{update.imageTitle}</strong>
+                  </li>
+                ))
+              ) : (
+                <li>No recent updates</li>
+              )}
+            </ul>
         </div>
       </div>)}
       
