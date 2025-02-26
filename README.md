@@ -100,8 +100,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [ ] **Hooks** - I did not complete this part of the deliverable.
+- [x] **All functionality implemented or mocked out** - Used `localStorage` to store username and comments. Made it so users can post and delete comments. Also made it so that when a new comment is posted, it updates the "Recent Updates" section in `pictures.jsx` to mock out websocket notifications. 
+- [x] **Hooks** - I used `useEffect` quite often.
 
 ## 🚀 Service deliverable
 
