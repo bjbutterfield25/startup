@@ -12,7 +12,7 @@ export function Authenticated(props) {
   return (
     <div>
       <div className='usersName'>{props.userName}</div>
-      <p>Thank you for logging in. You may know view others comments and leave your own.</p>
+      <p>Thank you for logging in. You may now view others comments and leave your own.</p>
       <button type="submit" className="btn btn-outline-primary btn-sm" onClick={() => navigate('/pictures')}>
         Pictures
       </button>
