@@ -10,10 +10,26 @@ export function Unauthenticated(props) {
     }
   
     async function createUser() {
-      localStorage.setItem('userName', userName);
-      props.onLogin(userName);
+      loginOrCreate(`/api/auth/create`);
     }
   
+    async function loginOrCreate(endpoint) {
+      const response = await fetch(endpoint, {
+        method: 'post',
+        body: JSON.stringify({ email: userName, password: password }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      });
+      if (response?.status === 200) {
+        localStorage.setItem('userName', userName);
+        props.onLogin(userName);
+      } else {
+        const body = await response.json();
+        alert(`⚠ Error: ${body.msg}`);
+      }
+    }
+
     return (
       <>
         <p className="intro">Pictures Around the World allows you to view various photos and leave comments if you desire. Your comments will be public to all other users and you must login below in order to leave a comment.</p>
