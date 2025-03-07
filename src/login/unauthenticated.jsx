@@ -5,8 +5,7 @@ export function Unauthenticated(props) {
     const [password, setPassword] = React.useState('');
   
     async function loginUser() {
-      localStorage.setItem('userName', userName);
-      props.onLogin(userName);
+      loginOrCreate(`/api/auth/login`);
     }
   
     async function createUser() {

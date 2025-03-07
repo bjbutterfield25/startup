@@ -28,6 +28,18 @@ apiRouter.post('/auth/create', async (req, res) => {
     }
 });
 
+apiRouter.post('/auth/login', async (req, res) => {
+    const user = await findUser('username', req.body.username);
+    if (user) {
+        if (await bcrypt.compare(req.body.password, user.password)) {
+            user.token = uuid.v4();
+            res.send({ username: user.username, token: user.token });
+            return;
+        }
+    }
+    res.status(401).send({ msg: 'Username not found' });
+});
+
 async function createUser(username, password) {
     const passwordHash = await bcrypt.hash(password, 10);
     const user = { 
