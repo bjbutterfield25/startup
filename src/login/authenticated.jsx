@@ -5,8 +5,16 @@ export function Authenticated(props) {
   const navigate = useNavigate();
 
   function logout() {
-    localStorage.removeItem('userName');
-    props.onLogout();
+    fetch(`/api/auth/logout`, {
+      method: 'delete',
+    })
+    .catch(() => {
+      alert('Logout failed. Please check your network connection and try again.');
+    })
+    .finally(() => {
+      localStorage.removeItem('userName');
+      props.onLogout();
+    });
   }
 
   return (

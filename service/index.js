@@ -24,6 +24,7 @@ apiRouter.post('/auth/create', async (req, res) => {
         res.status(409).send({ msg: 'Existing user' });
     } else {
         const user = await createUser(req.body.username, req.body.password);
+        setAuthCookie(res, user.token);
         res.send({ username: user.username });
     }
 });
@@ -33,11 +34,21 @@ apiRouter.post('/auth/login', async (req, res) => {
     if (user) {
         if (await bcrypt.compare(req.body.password, user.password)) {
             user.token = uuid.v4();
-            res.send({ username: user.username, token: user.token });
+            setAuthCookie(res, user.token);
+            res.send({ username: user.username});
             return;
         }
     }
     res.status(401).send({ msg: 'Username not found' });
+});
+
+apiRouter.delete('/auth/logout', async (req, res) => {
+    const user = await findUser('token', req.cookies[authCookieName]);
+    if (user) {
+        delete user.token;
+    }
+    res.clearCookie(authCookieName);
+    res.send({ msg: 'Logged out' });
 });
 
 async function createUser(username, password) {
@@ -58,6 +69,13 @@ async function findUser(key, value) {
     return users.find(user => user[key] === value);
 }
 
+function setAuthCookie(res, authToken) {
+    res.cookie(authCookieName, authToken, {
+      secure: true,
+      httpOnly: true,
+      sameSite: 'strict',
+    });
+  }
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
