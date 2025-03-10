@@ -10,8 +10,21 @@ export function Login({ userName, authState, onAuthChange }) {
     const [quoteAuthor, setAuthor] = React.useState('unknown')
 
     React.useEffect(() => {
-        setQuote('The only way to do great work is to love what you do')
-        setAuthor('Steve Jobs')
+        async function fetchQuote() {
+            try {
+                const response = await fetch('/api/quote');
+                const data = await response.json();
+                const quoteData = data[0]
+                setQuote(quoteData.q);
+                setAuthor(quoteData.a || 'Unknown');
+            } catch (error) {
+                console.error('Error fetching quote:', error);
+                setQuote('The only way to do great work is to love what you do');
+                setAuthor('Steve Jobs');
+            }
+        }
+
+        fetchQuote();
     }, []);
 
   return (
@@ -35,6 +48,7 @@ export function Login({ userName, authState, onAuthChange }) {
                 <p id="quote"><em>{quote}</em></p>
             </blockquote>
             <figcaption className="blockquote-footer">{quoteAuthor}</figcaption>
+            <p>Inspirational quotes provided by <a href="https://zenquotes.io/" target="_blank">ZenQuotes API</a></p>
         </figure>
     </main>
   );

@@ -51,6 +51,17 @@ apiRouter.delete('/auth/logout', async (req, res) => {
     res.send({ msg: 'Logged out' });
 });
 
+app.get('/api/quote', async (req, res) => {
+    try {
+        const response = await fetch('https://zenquotes.io/api/random');
+        const data = await response.json();
+        res.json(data);
+    } catch (error) {
+        console.error('Error fetching quote:', error);
+        res.status(500).send({ msg: 'Failed to fetch quote' });
+    }
+});
+
 async function createUser(username, password) {
     const passwordHash = await bcrypt.hash(password, 10);
     const user = { 
