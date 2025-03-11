@@ -6,6 +6,7 @@ export function Comments( {userName} ) {
     const { id } = useParams()
     const [comments, setComments] = React.useState([]);
     const [newComment, setNewComment] = React.useState("");
+    const [loading, setLoading] = React.useState(true);
 
     const images = [
         { id: 1, url: "../Photos/Sunsets/sunset_ecuador.jpg", title: "Sunset in Ecuador"},
@@ -23,23 +24,46 @@ export function Comments( {userName} ) {
     const image = images.find(img => img.id.toString() === id)
 
     React.useEffect(() => {
-        const savedComments = JSON.parse(localStorage.getItem(`comments_${id}`)) || [];
-        setComments(savedComments);
+        async function fetchComments() {
+            setLoading(true);
+            try {
+                const response = await fetch(`/api/comments/${id}`, { credentials: 'include' });
+                if (response.ok) {
+                    const data = await response.json();
+                    setComments(data);
+                }
+            } catch (error) {
+                console.error('Error fetching comments:', error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchComments();
     }, [id]);
 
     const handleCommentChange = (event) => {
         setNewComment(event.target.value);
     };
 
-    const handleCommentSubmit = (event) => {
+    const handleCommentSubmit = async (event) => {
         event.preventDefault();
         if (newComment.trim() === "") return;
-        const timestamp = Date.now();
-        const newCommentObj = { userName, text: newComment, timestamp };
-        const updatedComments = [...comments, newCommentObj];
-        setComments(updatedComments);
-        localStorage.setItem(`comments_${id}`, JSON.stringify(updatedComments));
-        setNewComment("");
+        const newCommentObj = { text: newComment };
+        try {
+            const response = await fetch(`/api/comments/${id}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newCommentObj),
+                credentials: 'include',
+            });
+            if (response.ok) {
+                const data = await response.json();
+                setComments([...comments, data.comment]);
+                setNewComment("");
+            }
+        } catch (error) {
+            console.error('Error posting comment:', error);
+        }
     };
 
     const handleDeleteComment = (index) => {
@@ -47,7 +71,6 @@ export function Comments( {userName} ) {
         setComments(updatedComments);
         localStorage.setItem(`comments_${id}`, JSON.stringify(updatedComments));
     };
-
 
   return (
     <main>
@@ -61,7 +84,8 @@ export function Comments( {userName} ) {
             <p style={{textAlign: 'center'}}>You will need to go to the Pictures page to select a picture</p>
         )}
         <div className = "commentsDiv">
-            {comments.length === 0 ? (
+            {loading ? <p>Loading comments...</p> :
+                comments.length === 0 ? (
                 <p className="no-comments">Be the first to comment</p>
                 ) : comments.map((comment, index) => (
                     <div key={index} className="commentItem">
@@ -78,7 +102,7 @@ export function Comments( {userName} ) {
         </div>
         <div className="mb-3">
             <form onSubmit={handleCommentSubmit}>
-                <label for="textarea">Comments: </label>
+                <label htmlFor="textarea">Comments: </label>
                 <textarea className="form-control" 
                     id="textarea" 
                     name="comment" 

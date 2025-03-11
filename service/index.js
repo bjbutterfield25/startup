@@ -10,7 +10,7 @@ const authCookieName = 'token';
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 let users = [];
-let comments = [];
+let comments = {};
 
 app.use(express.json());
 app.use(cookieParser());
@@ -65,11 +65,35 @@ app.get('/api/quote', async (req, res) => {
 const verifyAuth = async (req, res, next) => {
     const user = await findUser('token', req.cookies[authCookieName]);
     if (user) {
+      req.user = user
       next();
     } else {
       res.status(401).send({ msg: 'Unauthorized' });
     }
   };
+
+apiRouter.get('/comments/:id', (req, res) => {
+    const imageId = req.params.id;
+    res.send(comments[imageId] || []);
+});
+
+apiRouter.post('/comments/:id', verifyAuth, (req, res) => {
+    const imageId = req.params.id;
+    const { text } = req.body;
+    if (!text.trim()) {
+        return res.status(400).send({ msg: 'Comment cannot be empty' });
+    }
+    const newComment = {
+        userName: req.user.username,
+        text,
+        timestamp: Date.now()
+    };
+    if (!comments[imageId]) {
+        comments[imageId] = [];
+    }
+    comments[imageId].push(newComment);
+    res.send({ msg: 'Comment added', comment: newComment });
+});
 
 async function createUser(username, password) {
     const passwordHash = await bcrypt.hash(password, 10);
