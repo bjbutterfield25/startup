@@ -72,7 +72,7 @@ const verifyAuth = async (req, res, next) => {
     }
   };
 
-apiRouter.get('/comments/:id', (req, res) => {
+apiRouter.get('/comments/:id', verifyAuth, (req, res) => {
     const imageId = req.params.id;
     res.send(comments[imageId] || []);
 });
