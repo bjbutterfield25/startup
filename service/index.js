@@ -62,6 +62,15 @@ app.get('/api/quote', async (req, res) => {
     }
 });
 
+const verifyAuth = async (req, res, next) => {
+    const user = await findUser('token', req.cookies[authCookieName]);
+    if (user) {
+      next();
+    } else {
+      res.status(401).send({ msg: 'Unauthorized' });
+    }
+  };
+
 async function createUser(username, password) {
     const passwordHash = await bcrypt.hash(password, 10);
     const user = { 
