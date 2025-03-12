@@ -48,7 +48,7 @@ export function Pictures({ userName, authState }) {
 
   React.useEffect(() => {
     fetchRecentComments();
-    setInterval(() => fetchRecentComments, 5000)
+    setInterval(fetchRecentComments, 5000);
   }, []);
 
   return (
