@@ -107,11 +107,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
-- [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
-- [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
-- [ ] **Backend service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Frontend calls service endpoints** - I did not complete this part of the deliverable.
+- [x] **Node.js/Express HTTP service** - Installed Express with NPM. Default port is 4000.
+- [x] **Static middleware for frontend** - Used `app.use(express.static('public'));` to load the page and other static assets.
+- [x] **Calls to third party endpoints** - Login page calls `/api/quote` which calls `https://zenquotes.io/api/random` to get a random quote. 
+- [x] **Backend service endpoints** - Simple endpoints in `service/index.js` for authentication, comments and quote. 
+- [x] **Frontend calls service endpoints** - All mocked out functionality is now replaced with calls to the service. 
+- [x] **Supports registration, login, logout, and restricted endpoint** - Fully support authentication and restricts access to comments.
 
 ## 🚀 DB/Login deliverable
 
