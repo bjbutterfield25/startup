@@ -66,10 +66,21 @@ export function Comments( {userName} ) {
         }
     };
 
-    const handleDeleteComment = (index) => {
-        const updatedComments = comments.filter((_, i) => i !== index);
-        setComments(updatedComments);
-        localStorage.setItem(`comments_${id}`, JSON.stringify(updatedComments));
+    const handleDeleteComment = async (index) => {
+        try {
+            const response = await fetch(`/api/comments/${id}/${index}`, {
+                method: 'DELETE',
+                credentials: 'include',
+            });   
+            if (response.ok) {
+                setComments(comments.filter((_, i) => i !== index));
+            } else {
+                const data = await response.json();
+                console.error('Error deleting comment:', data.msg);
+            }
+        } catch (error) {
+            console.error('Error deleting comment:', error);
+        }
     };
 
   return (

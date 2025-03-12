@@ -95,6 +95,17 @@ apiRouter.post('/comments/:id', verifyAuth, (req, res) => {
     res.send({ msg: 'Comment added', comment: newComment });
 });
 
+apiRouter.delete('/comments/:id/:index', verifyAuth, (req, res) => {
+    const imageId = req.params.id;
+    const index = parseInt(req.params.index);
+    if (comments[imageId] && comments[imageId][index]) {
+        comments[imageId].splice(index, 1);
+        res.send({ msg: 'Comment deleted' });
+    } else {
+        res.status(404).send({ msg: 'Comment not found' });
+    }
+});
+
 async function createUser(username, password) {
     const passwordHash = await bcrypt.hash(password, 10);
     const user = { 
