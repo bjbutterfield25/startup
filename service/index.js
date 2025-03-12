@@ -72,6 +72,21 @@ const verifyAuth = async (req, res, next) => {
     }
   };
 
+apiRouter.get('/recent-comments', verifyAuth, (req, res) => {
+    let allComments = [];
+    Object.keys(comments).forEach(imageId => {
+        comments[imageId].forEach(comment => {
+            allComments.push({
+                userName: comment.userName,
+                imageId: imageId,
+                timestamp: comment.timestamp
+            });
+        });
+    });
+    allComments.sort((a, b) => b.timestamp - a.timestamp);
+    res.send(allComments.slice(0, 3));
+});
+
 apiRouter.get('/comments/:id', verifyAuth, (req, res) => {
     const imageId = req.params.id;
     res.send(comments[imageId] || []);
@@ -80,9 +95,6 @@ apiRouter.get('/comments/:id', verifyAuth, (req, res) => {
 apiRouter.post('/comments/:id', verifyAuth, (req, res) => {
     const imageId = req.params.id;
     const { text } = req.body;
-    if (!text.trim()) {
-        return res.status(400).send({ msg: 'Comment cannot be empty' });
-    }
     const newComment = {
         userName: req.user.username,
         text,

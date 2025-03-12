@@ -24,22 +24,26 @@ export function Pictures({ userName, authState }) {
 
   const allImages = [...sunsetImages, ...animalImages];
 
-  const fetchRecentComments = () => {
-    let allComments = [];
-
-    allImages.forEach(image => {
-      const storedComments = JSON.parse(localStorage.getItem(`comments_${image.id}`)) || [];
-      storedComments.forEach(comment => {
-        allComments.push({
-          username: comment.userName,
-          imageTitle: image.title,
-          timestamp: comment.timestamp
-        });
-      });
-    });
-
-    allComments.sort((a, b) => b.timestamp - a.timestamp);
-    setRecentUpdates(allComments.slice(0, 3));
+  const fetchRecentComments = async () => {
+    try {
+      const response = await fetch('/api/recent-comments');
+      if (response.ok) {
+          const data = await response.json();
+          const recentComments = data.map(comment => {
+              const image = allImages.find(img => img.id == comment.imageId);
+              return {
+                  username: comment.userName,
+                  imageTitle: image ? image.title : "Unknown Image",
+                  timestamp: comment.timestamp
+              };
+          });
+          setRecentUpdates(recentComments);
+      } else {
+          console.error('Failed to fetch recent comments');
+      }
+  } catch (error) {
+      console.error('Error fetching recent comments:', error);
+  }
   };
 
   React.useEffect(() => {
