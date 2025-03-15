@@ -45,11 +45,13 @@ export function Pictures({ userName, authState }) {
       console.error('Error fetching recent comments:', error);
   }
   };
-
-  React.useEffect(() => {
-    fetchRecentComments();
-    setInterval(fetchRecentComments, 5000);
-  }, []);
+  
+  if (authState === AuthState.Authenticated) {
+    React.useEffect(() => {
+      fetchRecentComments();
+      setInterval(fetchRecentComments, 5000);
+    }, []);
+  }
 
   return (
     <main>
