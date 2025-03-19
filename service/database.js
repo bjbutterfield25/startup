@@ -22,6 +22,20 @@ async function addUser(user) {
     await userCollection.insertOne(user);
 }
 
+async function getUser(username) {
+    return await userCollection.findOne({
+        username: username
+    });
+}
+
+async function getUserByToken(token) {
+    return await userCollection.findOne({
+        token: token
+    });
+}
+
 module.exports = {
-    addUser
+    addUser,
+    getUser,
+    getUserByToken
 }

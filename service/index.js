@@ -134,7 +134,10 @@ async function findUser(key, value) {
     if(!value) {
         return null;
     }
-    return users.find(user => user[key] === value);
+    if (key === 'token') {
+        return DB.getUserByToken(value);
+    }
+    return DB.getUser(value);
 }
 
 function setAuthCookie(res, authToken) {
