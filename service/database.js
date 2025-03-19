@@ -34,8 +34,15 @@ async function getUserByToken(token) {
     });
 }
 
+async function updateUser(user) {
+    await userCollection.updateOne({ username: user.username }, { $set: user });
+}
+
+
+
 module.exports = {
     addUser,
     getUser,
-    getUserByToken
+    getUserByToken,
+    updateUser
 }
