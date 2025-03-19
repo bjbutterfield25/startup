@@ -16,3 +16,12 @@ const commentCollection = db.collection('comment');
       process.exit(1);
     }
   })();
+
+
+async function addUser(user) {
+    await userCollection.insertOne(user);
+}
+
+module.exports = {
+    addUser
+}
