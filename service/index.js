@@ -91,9 +91,10 @@ apiRouter.get('/recent-comments', verifyAuth, (req, res) => {
     res.send(allComments.slice(0, 3));
 });
 
-apiRouter.get('/comments/:id', verifyAuth, (req, res) => {
+apiRouter.get('/comments/:id', verifyAuth, async (req, res) => {
     const imageId = req.params.id;
-    res.send(comments[imageId] || []);
+    const comments = await DB.getComments(imageId)
+    res.send(comments || []);
 });
 
 apiRouter.post('/comments/:id', verifyAuth, (req, res) => {

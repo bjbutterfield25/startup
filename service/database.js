@@ -42,10 +42,15 @@ async function addComment(comment) {
     await commentCollection.insertOne(comment);
 }
 
+async function getComments(imageId) {
+    return await commentCollection.find({ imageId: imageId }).toArray();
+}
+
 module.exports = {
     addUser,
     getUser,
     getUserByToken,
     updateUser,
-    addComment
+    addComment,
+    getComments
 }
