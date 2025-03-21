@@ -38,11 +38,14 @@ async function updateUser(user) {
     await userCollection.updateOne({ username: user.username }, { $set: user });
 }
 
-
+async function addComment(comment) {
+    await commentCollection.insertOne(comment);
+}
 
 module.exports = {
     addUser,
     getUser,
     getUserByToken,
-    updateUser
+    updateUser,
+    addComment
 }

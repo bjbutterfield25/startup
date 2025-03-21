@@ -4,6 +4,7 @@ const uuid = require('uuid');
 const bcrypt = require('bcryptjs');
 const cookieParser = require('cookie-parser');
 const DB = require('./database.js');
+const { Db } = require('mongodb');
 
 const authCookieName = 'token';
 
@@ -101,12 +102,10 @@ apiRouter.post('/comments/:id', verifyAuth, (req, res) => {
     const newComment = {
         userName: req.user.username,
         text,
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        imageId: imageId
     };
-    if (!comments[imageId]) {
-        comments[imageId] = [];
-    }
-    comments[imageId].push(newComment);
+    DB.addComment(newComment);
     res.send({ msg: 'Comment added', comment: newComment });
 });
 
