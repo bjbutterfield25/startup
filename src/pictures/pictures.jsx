@@ -46,12 +46,13 @@ export function Pictures({ userName, authState }) {
   }
   };
   
-  if (authState === AuthState.Authenticated) {
-    React.useEffect(() => {
+  React.useEffect(() => {
+    if (authState === AuthState.Authenticated) {
       fetchRecentComments();
-      setInterval(fetchRecentComments, 5000);
-    }, []);
-  }
+      const intervalId = setInterval(fetchRecentComments, 5000); 
+      return () => clearInterval(intervalId); 
+    }
+  }, [authState]);
 
   return (
     <main>
