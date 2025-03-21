@@ -46,11 +46,22 @@ async function getComments(imageId) {
     return await commentCollection.find({ imageId: imageId }).toArray();
 }
 
+async function deleteComments(imageId, index) {
+    const comments = await commentCollection.find({ imageId: imageId }).toArray();
+    if (index < 0 || index >= comments.length) {
+        return false;
+    }
+    const commentId = comments[index]._id;
+    const result = await commentCollection.deleteOne({ _id: commentId });
+    return result.deletedCount > 0;
+}
+
 module.exports = {
     addUser,
     getUser,
     getUserByToken,
     updateUser,
     addComment,
-    getComments
+    getComments,
+    deleteComments
 }

@@ -110,14 +110,19 @@ apiRouter.post('/comments/:id', verifyAuth, (req, res) => {
     res.send({ msg: 'Comment added', comment: newComment });
 });
 
-apiRouter.delete('/comments/:id/:index', verifyAuth, (req, res) => {
+apiRouter.delete('/comments/:id/:index', verifyAuth, async (req, res) => {
     const imageId = req.params.id;
     const index = parseInt(req.params.index);
-    if (comments[imageId] && comments[imageId][index]) {
-        comments[imageId].splice(index, 1);
-        res.send({ msg: 'Comment deleted' });
-    } else {
-        res.status(404).send({ msg: 'Comment not found' });
+    try {
+        const success = await DB.deleteComments(imageId, index);
+        if (success) {
+            res.send({ msg: 'Comment deleted successfully' });
+        } else {
+            res.status(404).send({ msg: 'Comment not found or invalid index' });
+        }
+    } catch (error) {
+        console.error('Error deleting comment:', error);
+        res.status(500).send({ msg: 'Failed to delete comment' });
     }
 });
 
