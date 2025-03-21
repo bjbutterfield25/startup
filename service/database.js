@@ -56,6 +56,10 @@ async function deleteComments(imageId, index) {
     return result.deletedCount > 0;
 }
 
+async function recentComments() {
+    return await commentCollection.find().sort({ timestamp: -1 }).limit(3).toArray();
+}
+
 module.exports = {
     addUser,
     getUser,
@@ -63,5 +67,6 @@ module.exports = {
     updateUser,
     addComment,
     getComments,
-    deleteComments
+    deleteComments,
+    recentComments
 }

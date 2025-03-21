@@ -76,19 +76,9 @@ const verifyAuth = async (req, res, next) => {
     }
   };
 
-apiRouter.get('/recent-comments', verifyAuth, (req, res) => {
-    let allComments = [];
-    Object.keys(comments).forEach(imageId => {
-        comments[imageId].forEach(comment => {
-            allComments.push({
-                userName: comment.userName,
-                imageId: imageId,
-                timestamp: comment.timestamp
-            });
-        });
-    });
-    allComments.sort((a, b) => b.timestamp - a.timestamp);
-    res.send(allComments.slice(0, 3));
+apiRouter.get('/recent-comments', verifyAuth, async (req, res) => {
+    const recentComments = await DB.recentComments();
+    res.send(recentComments);
 });
 
 apiRouter.get('/comments/:id', verifyAuth, async (req, res) => {
