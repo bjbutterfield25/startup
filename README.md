@@ -118,11 +118,11 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **User registration** - I did not complete this part of the deliverable.
-- [ ] **User login and logout** - I did not complete this part of the deliverable.
-- [ ] **Stores data in MongoDB** - I did not complete this part of the deliverable.
-- [ ] **Stores credentials in MongoDB** - I did not complete this part of the deliverable.
-- [ ] **Restricts functionality based on authentication** - I did not complete this part of the deliverable.
+- [x] **User registration** - User's can create credentials in MongoDB with the `addUser` function in `service/database.js`
+- [x] **User login and logout** - User can login with credentials stored in MongoDB with `getUser` function in `service/database.js` and when they logout it updates in MongoDB with `updateUser` function in `service/database.js` 
+- [x] **Stores data in MongoDB** - Stores comments in MongoDB from `service/database.js`
+- [x] **Stores credentials in MongoDB** - Stores username and password in MongoDB from `service/database.js`
+- [x] **Restricts functionality based on authentication** - Cannot leave comments unless they are authenticated. Controlled by `AuthState` in frontend code and `verifyAuth` function in `index.js`
 
 ## 🚀 WebSocket deliverable
 
