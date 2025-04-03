@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom'
 import './comments.css';
+import { CommentNotifier } from '../commentNotifier';
 
 export function Comments( {userName} ) {
     const { id } = useParams()
@@ -64,6 +65,13 @@ export function Comments( {userName} ) {
         } catch (error) {
             console.error('Error posting comment:', error);
         }
+        // Notify other clients about the new comment
+        const image = images.find(img => img.id == id);
+        const msg = {
+            username: userName,
+            imageTitle: image ? image.title : "Unknown Image",
+        };
+        CommentNotifier.broadcastEvent(msg);
     };
 
     const handleDeleteComment = async (index) => {
