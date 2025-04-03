@@ -2,6 +2,7 @@ import React from 'react';
 import './pictures.css'; 
 import { Link } from 'react-router-dom';
 import { AuthState } from '../login/authState'; 
+import { CommentNotifier } from '../commentNotifier';
 
 export function Pictures({ userName, authState }) {
   const [recentUpdates, setRecentUpdates] = React.useState([]);
@@ -49,10 +50,16 @@ export function Pictures({ userName, authState }) {
   React.useEffect(() => {
     if (authState === AuthState.Authenticated) {
       fetchRecentComments();
-      const intervalId = setInterval(fetchRecentComments, 5000); 
-      return () => clearInterval(intervalId); 
+      CommentNotifier.addHandler(handleCommentsNotification);
+      return () => {
+        CommentNotifier.removeHandler(handleCommentsNotification);
+      };
     }
   }, [authState]);
+
+  function handleCommentsNotification(notification) {
+    setRecentUpdates([...recentUpdates, notification]);
+  }
 
   return (
     <main>
