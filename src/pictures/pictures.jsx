@@ -64,6 +64,7 @@ export function Pictures({ userName, authState }) {
           !(update.username === notification.username && update.imageTitle === notification.imageTitle)
         )
       );
+      fetchRecentComments();
     } else {
       setRecentUpdates((prevUpdates) => {
         const updatedUpdates = [notification, ...prevUpdates];
