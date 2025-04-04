@@ -82,6 +82,13 @@ export function Comments( {userName} ) {
             });   
             if (response.ok) {
                 setComments(comments.filter((_, i) => i !== index));
+                const img = images.find(img => img.id == id);
+                const msg = {
+                    type: 'delete',
+                    username: userName,
+                    imageTitle: img ? img.title : "Unknown Image",
+                };
+                CommentNotifier.broadcastEvent(msg);
             } else {
                 const data = await response.json();
                 console.error('Error deleting comment:', data.msg);
