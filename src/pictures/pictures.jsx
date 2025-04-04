@@ -58,7 +58,10 @@ export function Pictures({ userName, authState }) {
   }, [authState]);
 
   function handleCommentsNotification(notification) {
-    setRecentUpdates([...recentUpdates, notification]);
+    setRecentUpdates((prevUpdates) => {
+      const updatedUpdates = [notification, ...prevUpdates];
+      return updatedUpdates.slice(0, 3);
+    });
   }
 
   return (
