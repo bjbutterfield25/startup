@@ -58,10 +58,18 @@ export function Pictures({ userName, authState }) {
   }, [authState]);
 
   function handleCommentsNotification(notification) {
-    setRecentUpdates((prevUpdates) => {
-      const updatedUpdates = [notification, ...prevUpdates];
-      return updatedUpdates.slice(0, 3);
-    });
+    if (notification.type === 'delete'){
+      setRecentUpdates((prevUpdates) => 
+        prevUpdates.filter((update) =>
+          !(update.username === notification.username && update.imageTitle === notification.imageTitle)
+        )
+      );
+    } else {
+      setRecentUpdates((prevUpdates) => {
+        const updatedUpdates = [notification, ...prevUpdates];
+        return updatedUpdates.slice(0, 3);
+      });
+    }
   }
 
   return (
