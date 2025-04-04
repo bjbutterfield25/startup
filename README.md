@@ -128,8 +128,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Backend listens for WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Frontend makes WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Data sent over WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **WebSocket data displayed** - I did not complete this part of the deliverable.
-- [ ] **Application is fully functional** - I did not complete this part of the deliverable.
+- [x] **Backend listens for WebSocket connection** - Backend webSocket management executed in `service/peerProxy.js`
+- [x] **Frontend makes WebSocket connection** - Frontend webSocket management executed in `src/commentNotifier.js`
+- [x] **Data sent over WebSocket connection** - JSON representation of comment notifications. 
+- [x] **WebSocket data displayed** - Comment notification is displayed on `src/pictures/pictures.jsx` and comments are displayed on `src/comments/comments.jsx`.
+- [x] **Application is fully functional** - It is fully functional!! I did it!!
