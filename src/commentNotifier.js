@@ -40,6 +40,7 @@ class commentEventNotifier{
               handler(e);
             });
           });
+        this.events = this.events.filter((e) => e !== event);
     }
 }
 

@@ -42,6 +42,30 @@ export function Comments( {userName} ) {
         fetchComments();
     }, [id]);
 
+    React.useEffect(() => {
+        const handleCommentNotification = (notification) => {
+            if (notification.type === 'add' && notification.imageId.toString() === id) {
+                setComments((prevComments) => [
+                    ...prevComments,
+                    {
+                        text: notification.text,
+                        userName: notification.username,
+                    },
+                ]);
+            } else if (notification.type === 'delete' && notification.imageId.toString() === id) {
+                setComments((prevComments) => 
+                    prevComments.filter((comment, index) => index !== notification.index)
+                );
+            }
+        };
+        CommentNotifier.addHandler(handleCommentNotification);
+
+        return () => {
+            CommentNotifier.removeHandler(handleCommentNotification);
+        };
+    }, [id]);
+
+
     const handleCommentChange = (event) => {
         setNewComment(event.target.value);
     };
@@ -59,19 +83,24 @@ export function Comments( {userName} ) {
             });
             if (response.ok) {
                 const data = await response.json();
-                setComments([...comments, data.comment]);
+                setComments((prevComments) => [
+                    ...prevComments,
+                    data.comment, 
+                ]);
                 setNewComment("");
+                const image = images.find(img => img.id == id);
+                const msg = {
+                    type: 'add',
+                    username: userName,
+                    text: data.comment.text,
+                    imageId: id,
+                    imageTitle: image ? image.title : "Unknown Image",
+                };
+                CommentNotifier.broadcastEvent(msg);
             }
         } catch (error) {
             console.error('Error posting comment:', error);
         }
-        // Notify other clients about the new comment
-        const image = images.find(img => img.id == id);
-        const msg = {
-            username: userName,
-            imageTitle: image ? image.title : "Unknown Image",
-        };
-        CommentNotifier.broadcastEvent(msg);
     };
 
     const handleDeleteComment = async (index) => {
@@ -86,7 +115,9 @@ export function Comments( {userName} ) {
                 const msg = {
                     type: 'delete',
                     username: userName,
+                    imageId: id,
                     imageTitle: img ? img.title : "Unknown Image",
+                    index: index,
                 };
                 CommentNotifier.broadcastEvent(msg);
             } else {
