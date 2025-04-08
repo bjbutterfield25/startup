@@ -29,6 +29,13 @@ export function Unauthenticated(props) {
       }
     }
 
+    const handleKeyDown = (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        loginUser();
+      }
+    };
+
     return (
       <>
         <p className="intro">Pictures Around the World allows you to view various photos and leave comments if you desire. Your comments will be public to all other users and you must login below in order to leave a comment.</p>
@@ -39,7 +46,7 @@ export function Unauthenticated(props) {
           </div>
           <div className='input-group mb-3'>
             <span className="input-group-text" id="basic-addon1">Password</span>
-            <input className='form-control' type='password' onChange={(e) => setPassword(e.target.value)} placeholder='Password' aria-label='Password' aria-describedby='basic-addon1'/>
+            <input className='form-control' type='password' onChange={(e) => setPassword(e.target.value)} onKeyDown={handleKeyDown} placeholder='Password' aria-label='Password' aria-describedby='basic-addon1'/>
           </div>
           <button type="submit" className="btn btn-outline-primary btn-sm" onClick={() => loginUser()} disabled={!userName || !password}>Login</button>
           <button type="submit" className="btn btn-outline-dark btn-sm" onClick={() => createUser()} disabled={!userName || !password}>Create</button>
