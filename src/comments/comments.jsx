@@ -166,6 +166,12 @@ export function Comments( {userName} ) {
                     rows="3" 
                     value={newComment}
                     onChange={handleCommentChange}
+                    onKeyDown={(event) => {
+                        if (event.key === 'Enter' && !event.shiftKey) {
+                            event.preventDefault();
+                            handleCommentSubmit(event);
+                        }
+                    }}
                     placeholder="Enter your comment">
                 </textarea>
                 <button type="submit" className="btn btn-primary">Post Comment</button>
